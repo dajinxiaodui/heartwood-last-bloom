@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heartwood: Last Bloom</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌳</text></svg>">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #04090f;
+    color: #9db8a6;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 0;
+    box-sizing: border-box;
+  }
+  canvas {
+    width: min(96vw, 1280px);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #07131f;
+    border: 1px solid rgba(126, 231, 135, 0.35);
+    border-radius: 10px;
+    box-shadow: 0 0 44px rgba(46, 168, 106, 0.28), 0 18px 50px rgba(0, 0, 0, 0.6);
+    cursor: crosshair;
+  }
+  p.hint {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  /* Shot mode (?shot=...): the canvas fills the viewport edge to edge so a
+     plain window capture is exactly the game frame. */
+  html.shot body { padding: 0; }
+  html.shot canvas {
+    width: 1280px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  html.shot p.hint { display: none; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1280" height="720"></canvas>
+<p class="hint">WASD / arrows to move · mouse to aim · hold click to fire · P pause · M mute · R restart</p>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
